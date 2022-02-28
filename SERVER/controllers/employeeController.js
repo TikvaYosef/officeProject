@@ -27,8 +27,9 @@ const update = async (req, res) => {
     employee.name = name;
     employee.salary = salary;
     employee.department = department;
-    res.send(employee);
+   await res.send(employee);
 }
+
 const deleteOne = async (req, res) => {
     const employee = employees.find(employee => employee.id === parseInt(req.params.id));
     if (!employee) {
@@ -37,7 +38,7 @@ const deleteOne = async (req, res) => {
     }
     const index = employees.indexOf(employee);
     employees.splice(index, 1);
-    res.send(employee);
+   await res.send(employee);
 }
 
 module.exports = { getAll, getById, addEmployee, update, deleteOne }
