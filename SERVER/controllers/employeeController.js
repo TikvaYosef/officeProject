@@ -19,7 +19,7 @@ const addEmployee = async (req, res) => {
 
 }
 const update = async (req, res) => {
-    const employee = employees.find(employee => employee.id === parseInt(req.params.id));
+    const employee =await employees.find(employee => employee.id === parseInt(req.params.id));
     if (!employee) {
         res.status(404).send('The employee with the given ID was not found.');
     }
@@ -31,14 +31,14 @@ const update = async (req, res) => {
 }
 
 const deleteOne = async (req, res) => {
-    const employee = employees.find(employee => employee.id === parseInt(req.params.id));
+    const employee =await employees.find(employee => employee.id === parseInt(req.params.id));
     if (!employee) {
 
         res.status(404).send('The employee with the given ID was not found.');
     }
     const index = employees.indexOf(employee);
     employees.splice(index, 1);
-    await res.send(employee);
+     res.send(employee);
 }
 
 module.exports = { getAll, getById, addEmployee, update, deleteOne }
