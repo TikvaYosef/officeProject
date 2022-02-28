@@ -12,7 +12,7 @@ const GETBYID = async (req, res) => {
         .catch((err) => res.status(404).send({ massege: err }))
 }
 
-const POST = async (req, res) => {
+const POST =  (req, res) => {
     // await employees.create(req.body)
     //     .then((result) => res.send(result))
     //     .catch((err) => res.status(404).send({ massege: err }));
