@@ -4,12 +4,12 @@ const requestHeandler = require("../controllers/employeeController")
 
 router.get("/", requestHeandler.getAll)
 
-// router.get("/:id", requestHeandler.GETBYID)
+router.get("/:id", requestHeandler.getById)
 
-// router.post("/", requestHeandler.POST)
+router.post("/", requestHeandler.addEmployee)
 
-// router.put("/:id",requestHeandler.PUT)
+router.put("/:id",requestHeandler.update)
 
-// router.delete("/:id",requestHeandler.DELETE)
+router.delete("/:id",requestHeandler.deleteOne)
 
 module.exports = router;
