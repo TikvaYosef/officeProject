@@ -23,11 +23,11 @@ const update = async (req, res) => {
     if (!employee) {
         res.status(404).send('The employee with the given ID was not found.');
     }
-    const { name, salary, department } = req.body;
-    employee.name = name;
-    employee.salary = salary;
-    employee.department = department;
-   await res.send(employee);
+    const { firstName, lastName, age } = req.body;
+    employee.firstName = firstName;
+    employee.lastName = lastName;
+    employee.age = age;
+    res.send(employee);
 }
 
 const deleteOne = async (req, res) => {
@@ -38,7 +38,7 @@ const deleteOne = async (req, res) => {
     }
     const index = employees.indexOf(employee);
     employees.splice(index, 1);
-   await res.send(employee);
+    await res.send(employee);
 }
 
 module.exports = { getAll, getById, addEmployee, update, deleteOne }
