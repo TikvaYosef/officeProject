@@ -13,11 +13,9 @@ const GETBYID = async (req, res) => {
 }
 
 const POST = async (req, res) => {
-    await employees.create(req.body)
-        .then((result) => res.send(result))
-        .catch((err) => res.status(404).send({ massege: err }));
-
-
+    // await employees.create(req.body)
+    //     .then((result) => res.send(result))
+    //     .catch((err) => res.status(404).send({ massege: err }));
 
 }
 const PUT = (req, res) => {
