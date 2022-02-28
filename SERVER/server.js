@@ -6,7 +6,7 @@ officeServer.listen(8080);
 
 const route = require("./routes/employeeRoter")
 const cors = require("cors");
-// app.use(cors());
+app.use(cors());
 
 
 officeServer.use("/", route)
