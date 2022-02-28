@@ -1,13 +1,13 @@
 require("dotenv").config()
 const express = require("express")
 require("./DB")
+const cors = require("cors");
+const route = require("./routes/employeeRoter")
 const officeServer = express();
+officeServer.use(express.json())
+officeServer.use(cors());
 officeServer.listen(8080);
 
-const route = require("./routes/employeeRoter")
-const cors = require("cors");
-app.use(cors());
-
-
+officeServer.get("/",(req,res)=>res.send("server is up"))
 officeServer.use("/", route)
 
