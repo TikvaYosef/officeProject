@@ -6,9 +6,9 @@ const route = require("./routes/employeeRoter")
 const officeServer = express();
 officeServer.use(express.json())
 officeServer.use(cors());
-const PORT =  process.env.PORT
+const PORT = process.env.PORT || 8000
 officeServer.listen(PORT);
 
-officeServer.get("/",(req,res)=>res.send("server is up"))
+officeServer.get("/", (req, res) => res.send("server is up"))
 officeServer.use("/employee", route)
 
