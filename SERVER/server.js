@@ -12,5 +12,5 @@ officeServer.listen(process.env.PORT,
 );
 
 officeServer.get("/", (req, res) => res.send("server is up"))
-officeServer.use("/employees", routing)
+officeServer.use("/", routing)
 
