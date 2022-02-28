@@ -10,5 +10,5 @@ const PORT = process.env.PORT || 8000
 officeServer.listen(PORT);
 
 officeServer.get("/", (req, res) => res.send("server is up"))
-officeServer.use("/employee", route)
+officeServer.use("/", route)
 
