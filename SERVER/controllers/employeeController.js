@@ -16,7 +16,6 @@ const addEmployee = async (req, res) => {
     await employees.create(req.body)
         .then((result) => res.send(result))
         .catch(err => res.status(404).send({ err }));
-
 }
 
 const update = async (req, res) => {
