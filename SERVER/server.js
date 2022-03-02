@@ -7,7 +7,7 @@ const userrouter = require("./routes/userRouter")
 const officeServer = express();
 officeServer.use(express.json());
 officeServer.use(cors());
-const PORT =  5050
+const PORT = process.env.PORT || 5050
 officeServer.listen(PORT);
 
 

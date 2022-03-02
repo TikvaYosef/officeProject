@@ -5,4 +5,4 @@ mongoose.connect(stringConection, { useNewUrlParser: true, useUnifiedTopology: t
     .then(() => console.log("mongoose is connect"))
     .catch(err => console.log(err))
 
-module.exports = mongoose.connections;
+module.exports = mongoose.connection;
