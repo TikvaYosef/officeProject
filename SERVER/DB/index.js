@@ -6,5 +6,3 @@ mongoose.connect(stringConection, { useNewUrlParser: true, useUnifiedTopology: t
     .catch(err => console.log(err))
 
 module.exports = mongoose.connection;
-
-

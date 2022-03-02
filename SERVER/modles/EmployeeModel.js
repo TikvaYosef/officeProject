@@ -1,12 +1,11 @@
 const mongoose = require("mongoose")
 
-const Employee = new mongoose.Schema({
+const employee = new mongoose.Schema({
     firstName: String,
-    lastName: { type: String, require:true },
+    lastName: { type: String, require: true },
     age: Number,
 
 },
     { timestamps: true }
 )
-
-module.exports = mongoose.model("Employee", Employee)
+module.exports = mongoose.model("employee", employee)

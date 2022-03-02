@@ -13,13 +13,21 @@ const getById = async (req, res) => {
 }
 
 const addEmployee = async (req, res) => {
-    await employees.create(req.body)
-        .then((result) => res.send(result))
-        .catch(err => res.status(404).send({ err }));
-}
+    console.log("hiii")
+    await employees
+      .create(req.body)
+      .then(result => res.send(result))
+      .catch(err => res.status(404).send({ massage: err }))
+  }
+
+// const addEmployee = async (req, res) => {
+//     await employees.create(req.body)
+//         .then((result) => res.send(result))
+//         .catch(err => res.status(404).send({ err }));
+// }
 
 const update = async (req, res) => {
-    const employee = employees.find(employee => employee.id === parseInt(req.params.id));
+    const employee = await employees.find(employee => employee.id === parseInt(req.params.id));
     if (!employee) {
         res.status(404).send('The employee with the given ID was not found.');
     }
@@ -31,7 +39,7 @@ const update = async (req, res) => {
 }
 
 const deleteOne = async (req, res) => {
-    const employee = employees.find(employee => employee.id === parseInt(req.params.id));
+    const employee = await employees.find(employee => employee.id === parseInt(req.params.id));
     if (!employee) {
 
         res.status(404).send('The employee with the given ID was not found.');

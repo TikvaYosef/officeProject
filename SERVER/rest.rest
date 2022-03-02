@@ -2,12 +2,12 @@
 
 
 
-# POST http://localhost:8080
+# POST http://localhost:8080/
 # Content-Type: application/json
  
 # {
-# "employye":{ 
+ 
 #      "firstName":"tikva",
 #      "lastName":"yosef"
-#     } 
+    
 # }
