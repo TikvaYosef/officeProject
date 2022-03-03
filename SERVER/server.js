@@ -17,7 +17,7 @@ require("./config/passport")(passport)
 const path = require("path")
 if (process.env.NODE_ENV === "production") {
     officeServer.use(express.static(path.join(__dirname,"../client/build")))
-    officeServer.get("*", (req, res) => res.sendFile(path.join(__dirname, "../client/build","index.html") ))
+    officeServer.get("/", (req, res) => res.sendFile(path.join(__dirname, "../client/build","index.html") ))
 }
 
 // officeServer.use("/employees", employeerouting)
