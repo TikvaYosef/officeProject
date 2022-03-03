@@ -11,7 +11,22 @@ const PORT = process.env.PORT || 5050
 officeServer.listen(PORT);
 
 
+const passport = require("passport");
+require("./config/passport")(passport)
+
 officeServer.get("/", (req, res) => res.send("server is up"))
+// officeServer.use("/employees", employeerouting)
 officeServer.use("/employee", employeerouting)
-officeServer.use("/register", userrouter);
+officeServer.use("/postemployee", employeerouting)
+officeServer.use("/updateemployee", employeerouting)
+officeServer.use("/deleteemployee", employeerouting)
+
+
+officeServer.use("/auth", userrouter);
+
+
+officeServer.use(passport.initialize())
+officeServer.use("/employees",passport.authenticate("jwt",{session:false}),employeerouting)
+
+
 

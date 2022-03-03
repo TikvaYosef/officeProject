@@ -1,9 +1,13 @@
 
 const userroute = require("express").Router();
-const register = require("../controllers/usercontroller")
+const usreRequestHeandler = require("../controllers/usercontroller")
 
 
-userroute.post("/register", register.register)
+userroute.post("/register", usreRequestHeandler.register)
+userroute.post("/login", usreRequestHeandler.login)
+// userroute.post("/logout", usreRequestHeandler.logOut)
+
+
 
 
 module.exports = userroute;
