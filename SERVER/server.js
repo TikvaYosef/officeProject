@@ -12,13 +12,12 @@ officeServer.listen(PORT);
 
 
 const passport = require("passport");
+officeServer.use(passport.initialize())
+
 require("./config/passport")(passport)
 
 const path = require("path")
-if (process.env.NODE_ENV === "production") {
-    officeServer.use(express.static(path.join(__dirname,"../client/build")))
-    officeServer.get("*", (req, res) => res.sendFile(path.join(__dirname, "../client/build","index.html") ))
-}
+
 
 // officeServer.use("/employees", employeerouting)
 officeServer.use("/employee", employeerouting)
@@ -28,8 +27,11 @@ officeServer.use("/deleteemployee", employeerouting)
 
 officeServer.use("/auth", userrouter);
 
-officeServer.use(passport.initialize())
+
 officeServer.use("/employees", passport.authenticate("jwt", { session: false }), employeerouting)
 
-
+if (process.env.NODE_ENV === "production") {
+    officeServer.use(express.static(path.join(__dirname,"../client/build")))
+    officeServer.get("*", (req, res) => res.sendFile(path.join(__dirname, "../client/build","index.html") ))
+}
 
